@@ -1,0 +1,31 @@
+Intuition
+I was just thinking about whats the easiest way to delete values from a vector. I knew that c++ has an easy method to do this so I knew wanted to use the erase method.
+
+Approach
+I approached the problem by first taking the size of the vector. This was used in my while loop where I iterated through the vector and compared to the val. After going through it all, I also output the new size of the vector
+
+Complexity
+Time complexity:
+O(n^2)
+
+Space complexity:
+O(1)
+
+Code
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int s = nums.size();
+        int i = 0;
+
+        while (i < nums.size()) {
+            if (nums[i] == val) {
+                nums.erase(nums.begin() + i); 
+            } else {
+                i++;
+            }
+        }
+        int n = nums.size();
+        return n;
+    }
+};
