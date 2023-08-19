@@ -1,3 +1,4 @@
+/*
 Intuition
 I was just thinking about whats the easiest way to delete values from a vector. I knew that c++ has an easy method to do this so I knew wanted to use the erase method.
 
@@ -12,6 +13,7 @@ Space complexity:
 O(1)
 
 Code
+*/
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
