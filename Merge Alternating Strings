@@ -1,0 +1,36 @@
+# Intuition
+The problem requires merging two strings by adding letters in alternating order, starting with `word1`. If one string is longer than the other, the additional letters are appended to the end of the merged string.
+
+# Approach
+The approach involves using two pointers (`i` and `j`) to iterate through both strings simultaneously. While both pointers are within the lengths of their respective strings, characters are added alternately to the `merged` string. After one of the strings is exhausted, the remaining characters from the other string are simply appended to the end of the `merged` string.
+
+# Complexity
+- Time complexity: O(n + m)
+  The approach iterates through both strings, performing constant-time operations for each character. Thus, the time complexity is linear, where `n` is the length of `word1` and `m` is the length of `word2`.
+
+- Space complexity: O(n + m)
+  The approach uses extra space to store the merged string, which can be as long as the combined lengths of `word1` and `word2`.
+
+# Code
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+    int s1=word1.length();
+    int s2=word2.length();
+    int i=0;int j=0;
+    string merged;
+
+    while(i<s1 && j<s2){
+        merged+=word1[i++];
+        merged+=word2[j++];
+    }
+    while (i<s1){
+        merged+=word1[i++];
+    }
+    while (j<s2){
+        merged+=word2[j++];
+    }
+
+    return merged;
+    }
+};
