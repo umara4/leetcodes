@@ -1,0 +1,32 @@
+# Intuition
+The problem requires finding the maximum profit that can be obtained from buying and selling a stock represented by price values. One efficient approach is to iterate through the price values while keeping track of the minimum price encountered so far and updating the maximum profit based on the difference between the current price and the minimum price.
+
+# Approach
+The approach involves using two variables: `maxProfit` to store the maximum profit obtained and `minPrice` to store the minimum price encountered. The algorithm iterates through the `prices` array, updating `minPrice` to the minimum of the current price and `minPrice`. Additionally, the algorithm updates `maxProfit` to the maximum of the current `maxProfit` and the difference between the current price and `minPrice`. This ensures that the algorithm finds the maximum profit while considering the best buying and selling points.
+
+# Complexity
+- Time complexity: O(n)
+  The approach iterates through the `prices` array once, performing constant-time operations for each price value. Thus, the time complexity is linear, where `n` is the size of the `prices` array.
+
+- Space complexity: O(1)
+  The approach uses only a constant amount of extra space for the `maxProfit` and `minPrice` variables, regardless of the input size.
+
+# Code
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int maxProfit = 0;
+        int minPrice = INT_MAX; // Initialize to a very high value
+
+        for (int i = 0; i < prices.size(); i++) {
+            if (prices[i] < minPrice) {
+                minPrice = prices[i]; // Update the minimum price if needed
+            } else if (prices[i] - minPrice > maxProfit) {
+                maxProfit = prices[i] - minPrice; // Update maxProfit
+            }
+        }
+
+        return maxProfit;
+    }
+};
